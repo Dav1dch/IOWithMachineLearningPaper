@@ -1,1 +1,1 @@
-![IOWithMachineLearning_0](IOWithMachineLearning/IOWithMachineLearning_0.jpg)
+![IOWithMachineLearning_0](IOWithMachineLearning/IOWithMachineLearning_0.png)

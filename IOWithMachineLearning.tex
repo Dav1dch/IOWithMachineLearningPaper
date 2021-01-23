@@ -56,10 +56,10 @@ should not be used}
 % \end{itemize}
     
 With revolution of "Big Data", data has grown exponentially in data centers. Therefore, data center has to process hundreds of millions of pictures and hundreds of billions of messages each day.
-How to improve processing efficiency is a hot issue of a data center. Due to the speed gap is huge between cpu and I/O device, so I/O is one of the bottlenecks of the issue.
+How to improve processing efficiency is a hot issue of a data center. Due to the huge speed gap between cpu and I/O device, I/O is one of the bottlenecks of the issue.
 Using asynchronous I/O is a common way to boost I/O speed, however, it isn't in all situations of system loads. 
 
-Synchronous and asynchronous I/O are two types of I/O synchronizations as  \emph{\textbf{\large{figure 1}}} show. In a synchronous I/O job, it starts a thread for I/O operation, and it would hang immediately until the operation is finished.
+Synchronous and asynchronous I/O are two types of I/O synchronizations as  \emph{\textbf{\large{figure 1}}} shows. In a synchronous I/O job, it starts a thread for I/O operation, and it would hang immediately until the operation is finished.
 While in a asynchronous I/O job, it would start a thread to send a I/O request to Kernel by calling a function, if the request is accepted successfully, it continues to process other jobs. 
 The kernel signals the calling thread when the operation is finished, then the thread interrupts its current job and processes the data from the I/O operation as soon as possible.
 Even if base on \emph{\textbf{io-uring}}.
