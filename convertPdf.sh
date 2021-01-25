@@ -1,6 +1,6 @@
 #!/bin/sh
 
-convert -background white ./IOWithMachineLearning.pdf IOWithMachineLearning.png
+convert -quality 100 ./IOWithMachineLearning.pdf IOWithMachineLearning.jpg
 
 > README.md
 
