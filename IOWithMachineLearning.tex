@@ -99,22 +99,69 @@ The rest of the paper is organized as follow.
 In this section we talk about the goals of our system first and then show the overview architecture.
 \subsection{Goals}
 \begin{itemize}
-    \item High-performance.
-    \item Scalable.
-    \item Self-optimization.
+    \item High-Performance. Our system should calculate the prediction in a short time and return it to the client on time, otherwise it would become a burden.
+    \item Cross-Platform. The system should have the ability to support variable of programming language, because the clients are written in different language.
+    \item Scalable. The system should be easy to add feature to afford different scenarios.
+    \item Self-Optimization. The system should have the ability to optimize itself daily for hot data.
 \end{itemize}
 
 \subsection{Overview}
-figure.
+Figure 2 show the architecture of the recommendation system. The system is built based on gRPC 
+to archive the goals of High-Performance, Cross-Platform and Scalable. The redis is deployed to store the hot query data.
+
+\begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.4\textwidth]{architecture.png}
+        \caption{Architecture}
+        % \label{fig}
+\end{figure}
+
+A detail procedure of user applications get the predictions from the system is described as follow by referring Fig.2
+\begin{enumerate}
+    \item Application prepares the characteristic parameters for the I/O jobs.
+    \item Remote call predict method through gRPC, waiting for the result or continue to other jobs if using asynchronous call.
+    \item The method would first check the query if it's in cache, if in, return it to the application first and update it in cache.
+    \item If it is not in cache, pass the parameters into Decision Tree model to predict the result. Then, return the result, and store it into cache.
+    \item Check the hottest queries in a day, collect them as the training data set to update the Decision Tree model.
+\end{enumerate}
+
 
 \subsection{Techniques}
 
 \begin{itemize}
     \item Machine Learning
-    \item Decision Tree
-    \item gRPC
-    \item atomic
-    \item redis 
+
+     Machine Learning is a method of data analysis that automates analytical model building. 
+     It is a branch of artificial intelligence based on the idea that systems can learn from data, identify patterns and make decisions with minimal human intervention.
+     It is very useful to predict the best I/O method in our system.
+    % "https://www.sas.com/en_us/insights/analytics/machine-learning.html"
+
+    \item Decision Tree 
+
+    A decision tree is a decision support tool that uses a tree-like model of decisions and their possible consequences, including chance event outcomes, resource costs, and utility. It is one way to display an algorithm that only contains conditional control statements.
+    Decision trees are commonly used in operations research, specifically in decision analysis, to help identify a strategy most likely to reach a goal, but are also a popular tool in machine learning.
+    It is easy to understand and implement, and can make feasible and effective results for large data sources in a relatively short time. At the same time, it is highly efficient. The decision tree only needs to be constructed once and used repeatedly,
+    and the maximum number of calculations for each prediction does not exceed the depth of the decision tree. By using Decision Tree can archive the goal of High-Performance.
+    % "https://en.wikipedia.org/wiki/Decision_tree"
+
+    \item gRPC framework
+
+    To archive the goals of High-Performance, Cross-Platform and Scalable, using gRPC framework is one of the best choice.
+    gRPC is a modern open source high performance RPC framework that can run in any environment. It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication. It is also applicable in last mile of distributed computing to connect devices, mobile applications and browsers to backend services.
+
+    % https://grpc.io/
+    \item Atomic
+
+    To speed up the system, we use atomic variables instead of locks, which have better performance in high concurrency scenarios compare to locks.
+    \item Redis 
+
+    Redis is an in-memory data structure store, which is usually used as cache.
+\end{itemize}
+
+\subsection{Discussion}
+\begin{itemize}
+    \item How to improve the performance?
+    \item How to Optimize itself?
 \end{itemize}
 
 
@@ -181,6 +228,8 @@ figure.
 \section{Evaluation}
 \begin{itemize}
     \item io-uring performance
+    \item evaluate the cost of gRPC
+    \item evaluate the cost of Decision Tree
     \item compare single I/O work performance between used and none-used our system 
     \item compare multi I/O works performance between used and none-used our system 
 \end{itemize}
