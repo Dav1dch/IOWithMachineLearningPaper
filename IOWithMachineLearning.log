@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.17)  15 FEB 2021 20:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.17)  16 FEB 2021 00:04
 entering extended mode
 **./IOWithMachineLearning.tex
 (IOWithMachineLearning.tex
@@ -226,8 +226,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 File: l3backend-pdftex.def 2021-01-09 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count274
 \l__pdf_internal_box=\box51
-)
-No file IOWithMachineLearning.aux.
+) (IOWithMachineLearning.aux)
 \openout1 = `IOWithMachineLearning.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -244,6 +243,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
+
 -- Lines per column: 56 (exact).
 (C:\Users\David\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -291,10 +291,10 @@ Underfull \vbox (badness 1221) has occurred while \output is active []
 <architecture.png, id=11, 382.42876pt x 352.31625pt>
 File: architecture.png Graphic file (type png)
 <use architecture.png>
-Package pdftex.def Info: architecture.png  used on input line 114.
+Package pdftex.def Info: architecture.png  used on input line 118.
 (pdftex.def)             Requested size: 206.39685pt x 190.1458pt.
 
-Underfull \hbox (badness 2653) in paragraph at lines 149--151
+Underfull \hbox (badness 2653) in paragraph at lines 153--158
 []\OT1/ptm/m/n/10 To archive the goals of High-Performance, Cross-
  []
 
@@ -312,21 +312,17 @@ Before submitting the final camera ready copy, remember to:
 
 [3
 
-] (IOWithMachineLearning.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+] (IOWithMachineLearning.aux) ) 
 Here is how much of TeX's memory you used:
- 4048 strings out of 479618
- 59403 string characters out of 2865026
- 350160 words of memory out of 3000000
+ 4050 strings out of 479618
+ 59505 string characters out of 2865026
+ 349154 words of memory out of 3000000
  21174 multiletter control sequences out of 15000+200000
  450224 words of font info for 130 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,74p,412b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 68i,11n,74p,338b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/David/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/David/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/David/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/David/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/David/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/David/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on IOWithMachineLearning.pdf (3 pages, 93369 bytes).
+Output written on IOWithMachineLearning.pdf (3 pages, 95438 bytes).
 PDF statistics:
  38 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
