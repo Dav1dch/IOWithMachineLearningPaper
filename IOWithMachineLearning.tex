@@ -8,11 +8,15 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
 \usepackage{listings}
 \usepackage{fontspec} % 定制字体
 \newfontfamily\menlo{agave Nerd Font}
 \usepackage{xcolor}
 
+\usetikzlibrary{arrows}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -49,7 +53,7 @@ should not be used}
 
 \renewcommand\IEEEkeywordsname{Keywords}
 \begin{IEEEkeywords}
-	asynchronous I/O, synchronous I/O, Machine Learning, performance prediction, gRPC
+	asynchronous I/O, synchronous I/O, Machine Learning, performance prediction, gRPC, PMML
 \end{IEEEkeywords}
 
 \section{Introduction}
@@ -176,6 +180,51 @@ A detail procedure of user applications get the predictions from the system is d
 	\item \emph{Redis}
 
 	      Redis is an in-memory data structure store, which is usually used as cache.
+
+	\item \emph{PMML}
+
+	pmml pmml pmml pmml pmml pmml pmml pmml pmml pmml pmml pmml
+	      \begin{lstlisting}[language={bash},
+		basicstyle=\small\menlo,
+        numbers=left]
+			<DataDictionary>
+<DataField name="y" 
+		   optype="categorical"
+		   dataType="integer">
+	<Value value="0"/>
+	<Value value="1"/>
+	<Value value="2"/>
+	<Value value="3"/>
+	<Value value="4"/>
+	<Value value="5"/>
+	<Value value="6"/>
+	<Value value="7"/>
+</DataField>
+	<DataField name="x1"
+               optype="continuous" 
+               dataType="float"/>
+	<DataField name="x2"
+               optype="continuous" 
+               dataType="float"/>
+	<DataField name="x3"
+               optype="continuous" 
+               dataType="float"/>
+	<DataField name="x4"
+               optype="continuous" 
+               dataType="float"/>
+	<DataField name="x5"
+               optype="continuous" 
+               dataType="float"/>
+	<DataField name="x6"
+               optype="continuous" 
+               dataType="float"/>
+	<DataField name="x7"
+               optype="continuous" 
+               dataType="float"/>
+</DataDictionary>
+		  \end{lstlisting}
+
+
 \end{itemize}
 
 \subsection{Discussion}
@@ -266,19 +315,76 @@ const std::vector<std::vector<std::string>> jobs = {
 \end{lstlisting}
 
 	\item compare single I/O work performance between used and none-used our system
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.4\textwidth]{Figure_2.png}
-	\caption{Single Task}
-	% \label{fig}
-\end{figure}
+\pgfplotsset{
+  select row/.style={
+    x filter/.code={\ifnum\coordindex=#1\else\def\pgfmathresult{}\fi}
+  }
+}
+
+\pgfplotstableread[col sep=comma, header=false]{
+	Recommendation System, 68
+	Asynchronous, 69
+	Synchronous, 169
+}\datatable
+
+\begin{tikzpicture}[scale=0.8]
+  \begin{axis}[
+    % title=Australia's Primary Energy Consumption by sector - 2012,
+    ybar, bar shift=0pt,
+	enlarge y limits=0.1,
+    % xmin=0,
+    xtick={0,...,2},
+    xticklabels from table={\datatable}{0},
+    ymajorgrids = true,
+    bar width=1cm, 
+    width=9cm, height=9cm, 
+    xlabel={type},
+    ylabel={time(s)},
+    x tick label style={font=\footnotesize},
+    nodes near coords align={horizontal}]
+
+    \pgfplotsinvokeforeach{0,...,2}{
+      \addplot table [x expr=\coordindex, select row=#1] {\datatable};
+    }
+  \end{axis}
+\end{tikzpicture}
+
+As the figure shows, when the system is idle and there is less competition for I/O, 
+our system has the same performance as all asynchronous I/O, and has a great improvement with all synchronous I/O. This proves that our system will bring I/O performance improvement, and will not generate a lot of additional system overhead. 
+At the same time, it can be seen from this figure that asynchronous I/O has a very large performance improvement compared to synchronous I/O when idle
+
 	\item compare multi I/O works performance between used and none-used our system
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.4\textwidth]{Figure_1.png}
-	\caption{Multitasking}
-	% \label{fig}
-\end{figure}
+\pgfplotstableread[col sep=comma, header=false]{
+	Recommendation System, 199
+	Asynchronous, 448
+	Synchronous, 307
+}\datatable
+
+
+\begin{tikzpicture}[scale=0.8]
+  \begin{axis}[
+    % title=Australia's Primary Energy Consumption by sector - 2012,
+    ybar, bar shift=0pt,
+	enlarge y limits=0.1,
+    % xmin=0,
+    xtick={0,...,2},
+    xticklabels from table={\datatable}{0},
+    ymajorgrids = true,
+    bar width=1cm, 
+    width=9cm, height=9cm, 
+    xlabel={type},
+    ylabel={time(s)},
+    x tick label style={font=\footnotesize},
+    nodes near coords align={horizontal}]
+
+    \pgfplotsinvokeforeach{0,...,2}{
+      \addplot table [x expr=\coordindex, select row=#1] {\datatable};
+    }
+  \end{axis}
+\end{tikzpicture}
+
+  When the system is busy and there is more I/O competition, our system has a greater performance improvement. Compared with all asynchronous I/O, there is a 55\% performance improvement, and compared with all synchronous I/O, there is a 35\% performance improvement. In addition, the chart also shows that in this case, synchronous I/O also has a great performance improvement compared to asynchronous I/O.
+And our recommendation system can recommend different I/O paths in real time, can use synchronous I/O when the system is busy, and use asynchronous I/O when the system is relatively idle, combining the respective advantages of these two types of I/O , In order to achieve the effect of improving system performance.
 	\item io-uring performance
 	\item evaluate the cost of gRPC
 	\item evaluate the cost of Decision Tree
