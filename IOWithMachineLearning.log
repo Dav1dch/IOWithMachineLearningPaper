@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.12) (preloaded format=xelatex 2021.1.10)  25 FEB 2021 00:26
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.12) (preloaded format=xelatex 2021.1.10)  26 FEB 2021 00:14
 entering extended mode
 **/home/david/Documents/IOWithMachineLearningPaper/IOWithMachineLearning.tex
 (/home/david/Documents/IOWithMachineLearningPaper/IOWithMachineLearning.tex
@@ -870,21 +870,29 @@ File: fig2bedit.png Graphic file (type bmp)
 File: architecture.png Graphic file (type bmp)
 <architecture.png>
 
-Underfull \hbox (badness 4366) in paragraph at lines 132--134
+Underfull \hbox (badness 4366) in paragraph at lines 135--137
 []\TU/ptm/bx/it/10 A detail procedure of user applications get the
  []
 
 
-Underfull \hbox (badness 5245) in paragraph at lines 160--165
+Underfull \hbox (badness 5245) in paragraph at lines 163--168
 \TU/ptm/bx/it/10 consequences, including chance event outcomes,
  []
 
-[2] (/home/david/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+\TU/ptm/bx/it/10 cross-platform deployment of machine learning
+ []
+
+(/home/david/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (/home/david/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [3]
+)
+Underfull \vbox (badness 2698) has occurred while \output is active []
+
+ [3]
 (/home/david/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
@@ -893,16 +901,16 @@ File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
 
 LaTeX Font Warning: Font shape `TU/agaveNerdFont(0)/b/n' undefined
-(Font)              using `TU/agaveNerdFont(0)/m/n' instead on input line 291.
+(Font)              using `TU/agaveNerdFont(0)/m/n' instead on input line 296.
 
 
-Overfull \hbox (80.10046pt too wide) in paragraph at lines 291--292
+Overfull \hbox (80.10046pt too wide) in paragraph at lines 296--297
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
 LaTeX Font Warning: Font shape `TU/agaveNerdFont(0)/m/it' undefined
-(Font)              using `TU/agaveNerdFont(0)/m/n' instead on input line 292.
+(Font)              using `TU/agaveNerdFont(0)/m/n' instead on input line 297.
 
 NOTE: coordinate (1.0e0,69) has been dropped because of a coordinate filter. (s
 ee also unbounded coords=jump). 
@@ -917,7 +925,7 @@ ee also unbounded coords=jump).
 NOTE: coordinate (1.0e0,69) has been dropped because of a coordinate filter. (s
 ee also unbounded coords=jump). 
 
-Underfull \hbox (badness 1852) in paragraph at lines 352--355
+Underfull \hbox (badness 1852) in paragraph at lines 357--360
 \TU/ptm/bx/it/10 system overhead. At the same time, it can be
  []
 
@@ -934,12 +942,20 @@ see also unbounded coords=jump).
 NOTE: coordinate (1.0e0,448) has been dropped because of a coordinate filter. (
 see also unbounded coords=jump). 
 
-Underfull \hbox (badness 3364) in paragraph at lines 386--388
+Underfull \hbox (badness 3364) in paragraph at lines 391--393
 \TU/ptm/bx/it/10 there is a 55% performance improvement, and
  []
 
-[4]
-Underfull \hbox (badness 2478) in paragraph at lines 412--413
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+NOTE: coordinate (1.0e0,6.5) has been dropped because of a coordinate filter. (
+see also unbounded coords=jump). 
+NOTE: coordinate (0.0e0,1.7) has been dropped because of a coordinate filter. (
+see also unbounded coords=jump). 
+
+Underfull \hbox (badness 2478) in paragraph at lines 449--450
 \TU/ptm/bx/it/10 composing and formatting conference papers. Please
  []
 
@@ -962,10 +978,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 28798 strings out of 413992
- 749570 string characters out of 2878090
- 1383250 words of memory out of 3000000
- 47891 multiletter control sequences out of 15000+200000
+ 28809 strings out of 413992
+ 749766 string characters out of 2878090
+ 1382390 words of memory out of 3000000
+ 47902 multiletter control sequences out of 15000+200000
  416991 words of font info for 127 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  83i,11n,83p,792b,2091s stack positions out of 5000i,500n,10000p,200000b,50000s
